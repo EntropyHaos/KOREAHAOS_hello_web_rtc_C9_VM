@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <!--
- *  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
+ *  Copyright (c) 2014 The WebRTC project authors. All Rights Reserved.
  *
  *  Use of this source code is governed by a BSD-style license
  *  that can be found in the LICENSE file in the root of the source
  *  tree.
 -->
 <html>
+
 <head>
 
   <meta charset="utf-8">
@@ -26,16 +27,43 @@
   <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../../../css/main.css">
 
+  <style>
+    .flipped {
+      /*
+        ORIGINAL Source : http://stackoverflow.com/questions/14455844/is-that-possible-to-make-video-mirrored
+        transform: rotateY(180deg);
+        -webkit-transform:rotateY(180deg);  Safari and Chrome 
+        -moz-transform:rotateY(180deg);  Firefox 
+      */
+      /*
+      transform: rotateX(180deg);
+      -webkit-transform:rotateX(180deg);
+      -moz-transform:rotateX(180deg);
+      */
+      
+      /*
+      transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg);
+      -moz-transform: rotateY(180deg);
+      */
+      /*
+      */
+      transform: rotateZ(180deg);
+      -webkit-transform:rotateZ(180deg);
+      -moz-transform:rotateZ(180deg);
+    }
+  </style>
 </head>
 
 <body>
 
   <div id="container">
 
-    <h1><a href="//webrtc.github.io/samples/" title="WebRTC samples homepage">WebRTC samples</a> <span>getUserMedia</span></h1>
-
+    <h1><a href="//webrtc.github.io/samples/" title="WebRTC samples homepage">WebRTC samples</a> <span>getUserMedia (modded)</span></h1>
+    <p>css styled to show correctly when the camera is upside down.</p>
     <!-- Here's where the video shows up!-->
-    <video id="gum-local" autoplay></video>
+
+    <video id="gum-local" class="flipped" autoplay></video>
 
     <div id="errorMsg"></div>
 
@@ -43,18 +71,19 @@
 
     <p>The <code>MediaStream</code> object <code>stream</code> passed to the <code>getUserMedia()</code> callback is in global scope, so you can inspect it from the console.</p>
 
-    <a href="https://github.com/webrtc/samples/tree/gh-pages/src/content/getusermedia/gum" title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>
+    <a href="https://github.com/webrtc/samples/tree/master/src/content/getusermedia/gum" title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>
   </div>
 
   <script src="../../../js/adapter.js"></script>
   <script src="../../../js/common.js"></script>
   <script src="js/main.js"></script>
 
-<!--
+  <!--
   <script src="../../../js/lib/ga.js"></script>
 -->
-<!--
+  <!--
 -->
 
 </body>
+
 </html>
