@@ -92,8 +92,8 @@ var TimelineDataSeries = (function() {
     getValues: function(startTime, stepSize, count) {
       // Use cached values, if we can.
       if (this.cacheStartTime_ === startTime &&
-          this.cacheStepSize_ === stepSize &&
-          this.cacheValues_.length === count) {
+        this.cacheStepSize_ === stepSize &&
+        this.cacheValues_.length === count) {
         return this.cacheValues_;
       }
 
@@ -115,7 +115,7 @@ var TimelineDataSeries = (function() {
       var time = startTime;
       for (var i = 0; i < count; ++i) {
         while (nextPoint < this.dataPoints_.length &&
-               this.dataPoints_[nextPoint].time < time) {
+          this.dataPoints_[nextPoint].time < time) {
           currentValue = this.dataPoints_[nextPoint].value;
           ++nextPoint;
         }
@@ -165,7 +165,10 @@ var TimelineGraphView = (function() {
    * @constructor
    */
   function TimelineGraphView(divId, canvasId) {
-    this.scrollbar_ = {position_: 0, range_: 0};
+    this.scrollbar_ = {
+      position_: 0,
+      range_: 0
+    };
 
     this.graphDiv_ = document.getElementById(divId);
     this.canvas_ = document.getElementById(canvasId);
@@ -275,8 +278,8 @@ var TimelineGraphView = (function() {
     },
 
     /**
-    * Adds |dataSeries| to the current graph.
-    */
+     * Adds |dataSeries| to the current graph.
+     */
     addDataSeries: function(dataSeries) {
       if (!this.graph_) {
         this.graph_ = new Graph();
@@ -305,7 +308,7 @@ var TimelineGraphView = (function() {
 
       // Safety check, to avoid drawing anything too ugly.
       if (fontHeightString.length === 0 || fontHeight <= 0 ||
-          fontHeight * 4 > height || width < 50) {
+        fontHeight * 4 > height || width < 50) {
         return;
       }
 
@@ -339,7 +342,7 @@ var TimelineGraphView = (function() {
       if (this.graph_) {
         // Layout graph and have them draw their tick marks.
         this.graph_.layout(
-            width, height, fontHeight, visibleStartTime, this.scale_);
+          width, height, fontHeight, visibleStartTime, this.scale_);
         this.graph_.drawTicks(context);
 
         // Draw the lines of all graphs, and then draw their labels.
@@ -489,7 +492,8 @@ var TimelineGraphView = (function() {
           for (var j = 0; j < values.length; ++j) {
             if (values[j] > max) {
               max = values[j];
-            } else if (values[j] < min) {
+            }
+            else if (values[j] < min) {
               min = values[j];
             }
           }
@@ -559,7 +563,8 @@ var TimelineGraphView = (function() {
         var maxLabels = 1 + this.height_ / minLabelSpacing;
         if (maxLabels < 2) {
           maxLabels = 2;
-        } else if (maxLabels > MAX_VERTICAL_LABELS) {
+        }
+        else if (maxLabels > MAX_VERTICAL_LABELS) {
           maxLabels = MAX_VERTICAL_LABELS;
         }
 
@@ -654,7 +659,7 @@ var TimelineGraphView = (function() {
             // The rounding is needed to avoid ugly 2-pixel wide anti-aliased
             // horizontal lines.
             context.lineTo(
-                x, bottom - Math.round((values[x] - this.min_) * scale));
+              x, bottom - Math.round((values[x] - this.min_) * scale));
           }
           context.stroke();
         }

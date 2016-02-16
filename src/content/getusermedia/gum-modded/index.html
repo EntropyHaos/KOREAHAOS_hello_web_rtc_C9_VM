@@ -7,6 +7,7 @@
  *  tree.
 -->
 <html>
+
 <head>
 
   <meta charset="utf-8">
@@ -26,16 +27,43 @@
   <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../../../css/main.css">
 
+  <style>
+    .flipped {
+      /*
+        ORIGINAL Source : http://stackoverflow.com/questions/14455844/is-that-possible-to-make-video-mirrored
+        transform: rotateY(180deg);
+        -webkit-transform:rotateY(180deg);  Safari and Chrome 
+        -moz-transform:rotateY(180deg);  Firefox 
+      */
+      /*
+      transform: rotateX(180deg);
+      -webkit-transform:rotateX(180deg);
+      -moz-transform:rotateX(180deg);
+      */
+      
+      /*
+      transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg);
+      -moz-transform: rotateY(180deg);
+      */
+      /*
+      */
+      transform: rotateZ(180deg);
+      -webkit-transform:rotateZ(180deg);
+      -moz-transform:rotateZ(180deg);
+    }
+  </style>
 </head>
 
 <body>
 
   <div id="container">
 
-    <h1><a href="//webrtc.github.io/samples/" title="WebRTC samples homepage">WebRTC samples</a> <span>getUserMedia</span></h1>
-
+    <h1><a href="//webrtc.github.io/samples/" title="WebRTC samples homepage">WebRTC samples</a> <span>getUserMedia (modded)</span></h1>
+    <p>css styled to show correctly when the camera is upside down.</p>
     <!-- Here's where the video shows up!-->
-    <video id="gum-local" autoplay></video>
+
+    <video id="gum-local" class="flipped" autoplay></video>
 
     <div id="errorMsg"></div>
 
@@ -50,11 +78,12 @@
   <script src="../../../js/common.js"></script>
   <script src="js/main.js"></script>
 
-<!--
+  <!--
   <script src="../../../js/lib/ga.js"></script>
 -->
-<!--
+  <!--
 -->
 
 </body>
+
 </html>

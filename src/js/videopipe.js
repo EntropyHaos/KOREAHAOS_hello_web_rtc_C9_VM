@@ -8,7 +8,8 @@
 //
 // A "videopipe" abstraction on top of WebRTC.
 //
-// The usage of this abstraction:
+// HOW-TO : The usage of this abstraction:
+//
 // var pipe = new VideoPipe(mediastream, handlerFunction);
 // handlerFunction = function(mediastream) {
 //   do_something
@@ -32,8 +33,7 @@ function successHandler(context) {
   }
 }
 
-function noAction() {
-}
+function noAction() {}
 
 
 function VideoPipe(stream, handler) {
@@ -45,13 +45,13 @@ function VideoPipe(stream, handler) {
   pc1.onicecandidate = function(event) {
     if (event.candidate) {
       pc2.addIceCandidate(new RTCIceCandidate(event.candidate),
-                          noAction, errorHandler('AddIceCandidate'));
+        noAction, errorHandler('AddIceCandidate'));
     }
   }
   pc2.onicecandidate = function(event) {
     if (event.candidate) {
       pc1.addIceCandidate(new RTCIceCandidate(event.candidate),
-                          noAction, errorHandler('AddIceCandidate'));
+        noAction, errorHandler('AddIceCandidate'));
     }
   }
   pc2.onaddstream = function(e) {
